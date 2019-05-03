@@ -1,0 +1,273 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MGS.Media</name>
+    </assembly>
+    <members>
+        <member name="T:MGS.Media.Subtitle">
+            <summary>
+            Subtitle of video.
+            </summary>
+        </member>
+        <member name="F:MGS.Media.Subtitle.clips">
+            <summary>
+            Clips of this subtitle.
+            </summary>
+        </member>
+        <member name="F:MGS.Media.Subtitle.clip">
+            <summary>
+            The last clip record.
+            </summary>
+        </member>
+        <member name="M:MGS.Media.Subtitle.CheckRange(System.Int32)">
+            <summary>
+            Check the play time is in this subtitle time range.
+            </summary>
+            <param name="time">Play time(Milliseconds).</param>
+            <returns>Play time is in this subtitle time range?</returns>
+        </member>
+        <member name="M:MGS.Media.Subtitle.FindClip(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Find the timely clip. 
+            </summary>
+            <param name="time">Play time(Milliseconds).</param>
+            <param name="start">Search start index.</param>
+            <param name="end">Search end index.</param>
+            <returns>Timely clip if find.</returns>
+        </member>
+        <member name="M:MGS.Media.Subtitle.GetClip(System.Int32)">
+            <summary>
+            Get subtitle clip content at play time.
+            </summary>
+            <param name="time">Play time(Milliseconds) of clip.</param>
+            <returns>Subtitle clip content.</returns>
+        </member>
+        <member name="M:MGS.Media.Subtitle.Refresh(System.Object)">
+            <summary>
+            Refresh subtitle base on the data source.
+            </summary>
+            <param name="source">Data source to refresh subtitle.</param>
+        </member>
+        <member name="T:MGS.Media.ISubtitle">
+            <summary>
+            Interface of subtitle.
+            </summary>
+        </member>
+        <member name="M:MGS.Media.ISubtitle.Refresh(System.Object)">
+            <summary>
+            Refresh subtitle base on the data source.
+            </summary>
+            <param name="source">Data source to refresh subtitle.</param>
+        </member>
+        <member name="M:MGS.Media.ISubtitle.GetClip(System.Int32)">
+            <summary>
+            Get subtitle clip content at play time.
+            </summary>
+            <param name="time">Play time(Milliseconds) of clip.</param>
+            <returns>Subtitle clip content.</returns>
+        </member>
+        <member name="T:MGS.Media.ISubtitleClip">
+            <summary>
+            Interface of subtitle clip.
+            </summary>
+        </member>
+        <member name="P:MGS.Media.ISubtitleClip.Index">
+            <summary>
+            Index of clip.
+            </summary>
+        </member>
+        <member name="P:MGS.Media.ISubtitleClip.StartTime">
+            <summary>
+            Start time(Milliseconds) of clip.
+            </summary>
+        </member>
+        <member name="P:MGS.Media.ISubtitleClip.EndTime">
+            <summary>
+            End time(Milliseconds) of clip.
+            </summary>
+        </member>
+        <member name="P:MGS.Media.ISubtitleClip.Content">
+            <summary>
+            Content of Clip.
+            </summary>
+        </member>
+        <member name="M:MGS.Media.ISubtitleClip.CheckState(System.Int32)">
+            <summary>
+            Check clip state base on play time.
+            </summary>
+            <param name="milliseconds">Play time(Milliseconds).</param>
+            <returns>Clip state.</returns>
+        </member>
+        <member name="T:MGS.Media.SubtitleClipState">
+            <summary>
+            State of subtitle clip base on current play time.
+            </summary>
+        </member>
+        <member name="F:MGS.Media.SubtitleClipState.Delayed">
+            <summary>
+            Clip is delayed.
+            </summary>
+        </member>
+        <member name="F:MGS.Media.SubtitleClipState.Timely">
+            <summary>
+            Clip is timely.
+            </summary>
+        </member>
+        <member name="F:MGS.Media.SubtitleClipState.Premature">
+            <summary>
+            Clip is premature.
+            </summary>
+        </member>
+        <member name="T:MGS.Media.SRTSubtitle">
+            <summary>
+            SRT subtitle of video.
+            </summary>
+        </member>
+        <member name="F:MGS.Media.SRTSubtitle.CLIP_LINES">
+            <summary>
+            Lines count of a clip.
+            </summary>
+        </member>
+        <member name="F:MGS.Media.SRTSubtitle.NEWLINE_SEPARATOR">
+            <summary>
+            Separator of new line.
+            </summary>
+        </member>
+        <member name="F:MGS.Media.SRTSubtitle.TIMERANGE_SEPARATOR">
+            <summary>
+            Separator of clip time range.
+            </summary>
+        </member>
+        <member name="F:MGS.Media.SRTSubtitle.TIME_SEPARATOR">
+            <summary>
+            Separator of clip time.
+            </summary>
+        </member>
+        <member name="M:MGS.Media.SRTSubtitle.ParseToClip(System.String,System.String,System.String)">
+            <summary>
+            Parse text to subtitle clip.
+            </summary>
+            <param name="index">Index text of clip.</param>
+            <param name="timeRange">The text of clip time range.</param>
+            <param name="centent">Content text of clip.</param>
+            <returns>Subtitle clip.</returns>
+        </member>
+        <member name="M:MGS.Media.SRTSubtitle.ParseToTimeRange(System.String,System.Int32@,System.Int32@)">
+            <summary>
+            Parse text to the time range of subtitle clip.
+            </summary>
+            <param name="timeRange">The text of clip time range.</param>
+            <param name="startTime">Start time(Milliseconds) of clip.</param>
+            <param name="endTime">End time(Milliseconds) of clip.</param>
+            <returns>Is parsed?</returns>
+        </member>
+        <member name="M:MGS.Media.SRTSubtitle.ParseToTime(System.String,System.Int32@)">
+            <summary>
+            Parse text to the time of subtitle clip.
+            </summary>
+            <param name="timeText">The text of clip time.</param>
+            <param name="time">Time(Milliseconds) of clip.</param>
+            <returns>Is parsed?</returns>
+        </member>
+        <member name="M:MGS.Media.SRTSubtitle.ClearCache">
+            <summary>
+            Clear subtitle cache.
+            </summary>
+        </member>
+        <member name="M:MGS.Media.SRTSubtitle.Refresh(System.Object)">
+            <summary>
+            Refresh srt subtitle base on the data source.
+            </summary>
+            <param name="source">Data source(type is SRTSubtitleSource) to refresh srt subtitle.</param>
+        </member>
+        <member name="M:MGS.Media.SRTSubtitle.Refresh(System.String[])">
+            <summary>
+            Refresh srt subtitle base on the data source.
+            </summary>
+            <param name="source">Data source to refresh srt subtitle.</param>
+        </member>
+        <member name="T:MGS.Media.SRTSubtitleSourceType">
+            <summary>
+            Type of srt subtitle source.
+            </summary>
+        </member>
+        <member name="F:MGS.Media.SRTSubtitleSourceType.File">
+            <summary>
+            SRTSubtitle from file.
+            </summary>
+        </member>
+        <member name="F:MGS.Media.SRTSubtitleSourceType.Text">
+            <summary>
+            SRTSubtitle from text content.
+            </summary>
+        </member>
+        <member name="T:MGS.Media.SRTSubtitleSource">
+            <summary>
+            Source of srt subtitle.
+            </summary>
+        </member>
+        <member name="F:MGS.Media.SRTSubtitleSource.source">
+            <summary>
+            Source of srt subtitle.
+            </summary>
+        </member>
+        <member name="F:MGS.Media.SRTSubtitleSource.type">
+            <summary>
+            Type of srt subtitle source.
+            </summary>
+        </member>
+        <member name="M:MGS.Media.SRTSubtitleSource.#ctor(System.String,MGS.Media.SRTSubtitleSourceType)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="source">Source of srt subtitle.</param>
+            <param name="type">Type of srt subtitle source.</param>
+        </member>
+        <member name="T:MGS.Media.SubtitleClip">
+            <summary>
+            Clip of subtitle.
+            </summary>
+        </member>
+        <member name="P:MGS.Media.SubtitleClip.Index">
+            <summary>
+            Index of clip.
+            </summary>
+        </member>
+        <member name="P:MGS.Media.SubtitleClip.StartTime">
+            <summary>
+            Start time(Milliseconds) of clip.
+            </summary>
+        </member>
+        <member name="P:MGS.Media.SubtitleClip.EndTime">
+            <summary>
+            End time(Milliseconds) of clip.
+            </summary>
+        </member>
+        <member name="P:MGS.Media.SubtitleClip.Content">
+            <summary>
+            Content of Clip.
+            </summary>
+        </member>
+        <member name="M:MGS.Media.SubtitleClip.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:MGS.Media.SubtitleClip.#ctor(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="index">Index of clip.</param>
+            <param name="startTime">Start time(Milliseconds) of clip.</param>
+            <param name="endTime">End time(Milliseconds) of clip.</param>
+            <param name="content">Content of Clip.</param>
+        </member>
+        <member name="M:MGS.Media.SubtitleClip.CheckState(System.Int32)">
+            <summary>
+            Check clip state base on play time.
+            </summary>
+            <param name="time">Play time(Milliseconds).</param>
+            <returns>Clip state.</returns>
+        </member>
+    </members>
+</doc>
