@@ -62,7 +62,6 @@ StyleCopReport.xml
 *_p.c
 *_i.h
 *.ilk
-*.meta
 *.obj
 *.iobj
 *.pch
@@ -332,3 +331,5 @@ ASALocalRun/
 /UnityProject/Temp
 /UnityProject/UnityProject.csproj
 /UnityProject/UnityProject.sln
+/UnityProject/Assets/MGS.Packages/ScriptTemplateEditor
+/UnityProject/Assets/MGS.Packages/ScriptTemplateEditor.meta
